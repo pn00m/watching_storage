@@ -32,7 +32,7 @@ PASSWORD='password'
 DEBUG=False
 ```
 
-Запуск скрипта
+*Запуск скрипта*
 ```sh
 python manage.py runserver 0.0.0.0:8000
 ```
