@@ -7,9 +7,9 @@ import pytz
 def storage_information_view(request):
     visits = Visit.objects.all()
     unfinished_visits = visits.filter(leaved_at=None)
-    non_closed_visits = []
+    serialized_visits = []
     for unfinished_visit in unfinished_visits:
-        non_closed_visits.append(
+        serialized_visits.append(
           {
             'who_entered': unfinished_visit.passcard,
             'entered_at': timezone.localtime(
@@ -22,6 +22,6 @@ def storage_information_view(request):
             }
         )
     context = {
-        'non_closed_visits': non_closed_visits,
+        'serialized_visits': serialized_visits,
     }
     return render(request, 'storage_information.html', context)
