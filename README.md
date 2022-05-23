@@ -13,23 +13,23 @@ pip install -r requirements.txt
 Для безопасного хранения конфиденциальных данных необходимо создать файл `.env`
 *Доступные переменные:*
 
-- ENGINE — драйвер базы данных.
-- HOST — адрес базы данных.
-- PORT — порт, на котором запущена база.
-- NAME — имя базы данных.
-- USER — имя пользователя БД.
-- PASSWORD — порт, на котором запущена база.
-- DEBUG — включает режим отладки.
+- `ENGINE` — драйвер базы данных.
+- `HOST` — адрес базы данных.
+- `PORT` — порт, на котором запущена база.
+- `NAME` — имя базы данных.
+- `USER` — имя пользователя БД.
+- `PASSWORD` — порт, на котором запущена база.
+- `DEBUG` — включает режим отладки.
+- `ALLOWED_HOSTS` — список доменов/хостов, на которых будет работать сайт. Подробнее в [документации Django](https://docs.djangoproject.com/en/1.11/ref/settings/#allowed-hosts)
+
+Программа использует драйвер базы данных `PostgreSQL`, а также утилиту [DJ-Database-URL](https://github.com/jazzband/dj-database-url), которая позволяет представить некоторые вышеуказанные переменные одной строкой вида
+`postgres://USER:PASSWORD@HOST:PORT/NAME`
 
 *Пример использования.*
 ```
-ENGINE='django.db.backends.postgresql_psycopg2'
-HOST='checkpoint.devman.org'
-PORT='5434'
-NAME='checkpoint'
-USER='user'
-PASSWORD='password'
-DEBUG=False
+DATABASE_URL=postgres://login:password@checkpoint.devman.org:5434/checkpoint
+DB_DEBUG=False
+DB_ALLOWED_HOSTS=localhost,127.0.0.1,example.com,www.example.com
 ```
 
 *Запуск скрипта*
